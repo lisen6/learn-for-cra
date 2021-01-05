@@ -51,7 +51,7 @@ Create 创建子项目
 
 创建一个子项目，并会根据交互提示生成对应的`package.json`
 
-注意：create 完之后如果发现在根目录下的 node_modules 没有软连接。需要重新 yarn install 一下。（前提是已经开启了 workspaces）
+注意：create 完之后如果发现在根目录下的 node_modules 没有软连接。需要重新 yarn install || lerna bootstrap 一下。（前提是已经开启了 workspaces）
 
 Add 添加依赖
 
