@@ -1,4 +1,4 @@
-lerna用于管理多`package`，且各`package`可能会互相引用的项目。
+lerna 用于管理多`package`，且各`package`可能会互相引用的项目。
 
 `lerna`通过两种方式管理子项目的版本号：
 
@@ -44,18 +44,20 @@ Lerna.json 配置
   "packages": ["packages/*"]
 }
 ```
+
 Create 创建子项目
 
 `lerna create <name>`
 
 创建一个子项目，并会根据交互提示生成对应的`package.json`
 
+注意：create 完之后如果发现在根目录下的 node_modules 没有软连接。需要重新 yarn install 一下。（前提是已经开启了 workspaces）
+
 Add 添加依赖
 
 `lerna add <package>[@version] [--dev] [--exact]`
 
-`lerna add eslint`： 所有包都会装上eslint。
-
+`lerna add eslint`： 所有包都会装上 eslint。
 
 `lerna add eslint --scope=package1`：只有`package1`会装上。
 
@@ -67,16 +69,15 @@ options:
 
 `--exact`: 只安装特定版本
 
-如果添加的是子项目，则会通过link软连接到对应的项目中。
+如果添加的是子项目，则会通过 link 软连接到对应的项目中。
 
 `lerna add package1 --scope=package2`
 
-Run 执行npm script命令
+Run 执行 npm script 命令
 
 `lerna run <script> -- [..args]`
 
 `lerna run test`：则会执行所有子项目中的`test`。
-
 
 `lerna run --scope package1 test`：只执行`package1`中的`test`。
 
@@ -86,7 +87,7 @@ Exec 执行任意命令
 
 `lerna exec -- <command> [..args]`
 
-与lerna run类似，只不过它可以执行任意命令。
+与 lerna run 类似，只不过它可以执行任意命令。
 
 `eg: lerna exec -- rm -rf ./node_modules`
 
